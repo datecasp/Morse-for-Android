@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Morse Light</string>
+    <string name="btnMorse">Morse</string>
+    <string name="txtInfo">Aplicación para enviar mensajes morse\ncon la linterna de tu móvil.\n\nIntroduce el texto y pulsa el botón MORSE.\n\nSi quieres repetir el memsaje en bucle,\nmarca la casilla.\n\nSi quieres salir del bucle,\npulsa el botón CANCELAR BUCLE que\naparecerá durante el mensaje.</string>
+    <string name="txtMorse">Texto a MORSE</string>
+    <string name="chkBucle">Repetir en bucle</string>
+    <string name="btnCancelar_bucle">Cancelar bucle</string>
+</resources>

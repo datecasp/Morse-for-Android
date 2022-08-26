@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:text="@string/txtInfo"
+        android:textAlignment="center" />
+
+
+    <EditText
+        android:id="@+id/txtIntro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:inputType="text"
+        android:hint="@string/txtMorse"
+         />
+
+    <Button
+        android:id="@+id/btnEncender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_gravity="center"
+        android:onClick="btnEncenderClick"
+        android:text="@string/btnMorse"
+        />
+
+    <CheckBox
+        android:id="@+id/chkBucle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/chkBucle"
+        />
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:onClick="btnCancelarClick"
+        android:text="@string/btnCancelar_bucle"
+        />
+
+</LinearLayout>
