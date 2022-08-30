@@ -16,7 +16,7 @@ public class MainActivity extends Activity
     private CameraManager manager;
     private String cameraId;
     private CameraCharacteristics characteristics;
-    private boolean flashOn = false;
+    private final boolean flashOn = false;
     private EditText et;
     private AlfabetoMorse.MorseBit[] mensaje = null;
     private CheckBox chkBucle;
@@ -57,6 +57,11 @@ public class MainActivity extends Activity
 
     }
 
+    /*
+        Tarea en segundo plano que muestra el mensaje a través del uso
+        del flash de la cámara.
+        AsyncTask está descatalogado. Buscar sistema para realizarlo
+     */
     private class TareaAsincrona extends AsyncTask<Void, Integer, Boolean> {
 
         @Override
@@ -70,7 +75,6 @@ public class MainActivity extends Activity
                                 Thread.sleep(250);
                             } catch (Exception ex) {
                             }
-                            ;
                             break;
                         case DASH:
                             try {
@@ -78,7 +82,6 @@ public class MainActivity extends Activity
                                 Thread.sleep(500);
                             } catch (Exception ex) {
                             }
-                            ;
                             break;
                         case GAP:
                             try {
@@ -86,7 +89,6 @@ public class MainActivity extends Activity
                                 Thread.sleep(250);
                             } catch (Exception ex) {
                             }
-                            ;
                             break;
                         case WORD_GAP:
                             try {
@@ -94,7 +96,6 @@ public class MainActivity extends Activity
                                 Thread.sleep(750);
                             } catch (Exception ex) {
                             }
-                            ;
                             break;
                         case LETTER_GAP:
                             try {
@@ -102,7 +103,6 @@ public class MainActivity extends Activity
                                 Thread.sleep(500);
                             } catch (Exception ex) {
                             }
-                            ;
                             break;
                         default:
                             break;
