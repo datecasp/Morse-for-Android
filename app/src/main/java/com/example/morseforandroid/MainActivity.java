@@ -37,6 +37,10 @@ public class MainActivity extends Activity
         btnCancelarBucle = findViewById(R.id.btnCancelar);
     }
 
+    /*
+        Cancels loop messaging
+        Changes boolean bucle flag and show toast with info
+     */
     public void btnCancelarClick(View v)
     {
         Toast.makeText(MainActivity.this, "Mensaje cancelado", Toast.LENGTH_SHORT).show();
@@ -46,14 +50,20 @@ public class MainActivity extends Activity
 
     public void btnEncenderClick(View v)
     {
+        mensaje = AlfabetoMorse.pattern(et.getText().toString());
+        manager = (CameraManager) getSystemService(CAMERA_SERVICE);
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.getMainLooper());
+
         if (chkBucle.isChecked())
         {
             btnCancelarBucle.setVisibility(View.VISIBLE);
             bucle = true;
         }
 
-        mensaje = AlfabetoMorse.pattern(et.getText().toString());
-        manager = (CameraManager) getSystemService(CAMERA_SERVICE);
+        /*
+            Try to get camera manager for the use of flash light
+         */
         try
         {
             for (int i = 0; i <= manager.getCameraIdList().length; i++)
@@ -67,18 +77,23 @@ public class MainActivity extends Activity
             }
         } catch (Exception ex)
         {
+            //Write some exception info
         }
 
-
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-        Handler handler = new Handler(Looper.getMainLooper());
-
+        /*
+            Use Executor.execute() to handle the BG work
+         */
         executor.execute(new Runnable()
         {
             @Override
             public void run()
             {
-                //BG work
+                /*
+                    Parsing text to morse simbols and loop if necesary
+
+                    BG work
+
+                */
                 do
                 {
                     for (AlfabetoMorse.MorseBit bit : mensaje)
@@ -134,6 +149,10 @@ public class MainActivity extends Activity
                                 break;
                         }
                     }
+                    /*
+                        These two try blocks sets flash off and waits 1 second for the end
+                        of the message (if looping it´s needed to separate lighting)
+                     */
                     try
                     {
                         manager.setTorchMode(cameraId, false);
@@ -158,7 +177,7 @@ public class MainActivity extends Activity
                     @Override
                     public void run()
                     {
-                        //UI post
+                        //UI post when BG work is done
                         Toast.makeText(MainActivity.this, "Mensaje enviado", Toast.LENGTH_SHORT).show();
                         bucle = false;
                         btnCancelarBucle.setVisibility(View.INVISIBLE);
