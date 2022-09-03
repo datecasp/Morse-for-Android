@@ -3,6 +3,8 @@ package com.example.morseforandroid;
 import android.app.Activity;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -50,6 +52,10 @@ public class MainActivity extends Activity
 
     public void btnEncenderClick(View v)
     {
+        //Prueba de reproducción de beep de sistema
+        ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 50);
+        toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 200); // 200 is duration in ms
+
         mensaje = AlfabetoMorse.pattern(et.getText().toString());
         manager = (CameraManager) getSystemService(CAMERA_SERVICE);
         ExecutorService executor = Executors.newSingleThreadExecutor();
