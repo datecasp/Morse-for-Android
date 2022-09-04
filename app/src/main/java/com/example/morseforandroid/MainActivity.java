@@ -55,21 +55,32 @@ public class MainActivity extends Activity
     }
     public void btnSendLightMessageClick(View v)
     {
-        light = true;
-        sound = false;
-        if (!sendingMessage) SendMessage(v);
+
+        if (!sendingMessage)
+        {
+            light = true;
+            sound = false;
+            SendMessage(v);
+        }
     }
     public void btnSendSoundMessageClick(View v)
     {
-        light = false;
-        sound = true;
-        if (!sendingMessage) SendMessage(v);
-  }
+
+        if (!sendingMessage)
+        {
+            light = false;
+            sound = true;
+            SendMessage(v);
+        }
+    }
     public void btnSendLightandSoundMessageClick(View v)
     {
-        light = true;
-        sound = true;
-        if (!sendingMessage) SendMessage(v);
+        if (!sendingMessage)
+        {
+            light = true;
+            sound = true;
+            SendMessage(v);
+        }
  }
     public void SendMessage(View v)
     {
