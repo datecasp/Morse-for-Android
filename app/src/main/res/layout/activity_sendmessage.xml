@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+            android:id="@+id/txtSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtSend"
+            android:textAlignment="center" android:textSize="18sp" android:layout_marginTop="40dp"/>
+
+    <EditText
+            android:id="@+id/txtIntro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:inputType="text"
+            android:hint="@string/txtMorseHint"
+    />
+
+    <Button
+            android:id="@+id/btnSendLightMsg"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_margin="8dp"
+            android:layout_gravity="center"
+            android:onClick="btnSendLightMessageClick"
+            android:text="@string/btnMorseL"
+    />
+
+    <Button
+            android:id="@+id/btnSendSoundMsg"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_margin="8dp"
+            android:layout_gravity="center"
+            android:onClick="btnSendSoundMessageClick"
+            android:text="@string/btnMorseS"
+    />
+
+    <Button
+            android:id="@+id/btnSendLightAndSoundMsg"
+            android:layout_width="150sp"
+            android:layout_height="150sp"
+            android:layout_margin="8dp"
+            android:layout_gravity="center"
+            android:onClick="btnSendLightandSoundMessageClick"
+            android:text="@string/btnMorseLandS"
+    />
+
+    <CheckBox
+            android:id="@+id/chkLoop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/chkBucle"
+    />
+
+    <Button
+            android:id="@+id/btnCancelMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            android:onClick="btnCancelClick"
+            android:text="@string/btnCancelar_bucle"
+    />
+
+</LinearLayout>

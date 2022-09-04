@@ -2,10 +2,20 @@
     <string name="app_name">Morse Light</string>
     <string name="btnMorseL">Flash</string>
     <string name="btnMorseS">Beep</string>
-    <string name="btnMorseLandS">Sonud+Beep</string>
-    <string name="txtInfo">Aplicación para enviar mensajes morse\ncon la linterna de tu móvil.\n\nIntroduce el texto y pulsa el botón MORSE.\n\nSi quieres repetir el memsaje en bucle,\nmarca la casilla.\n\nSi quieres salir del bucle,\npulsa el botón CANCELAR BUCLE que\naparecerá durante el mensaje.</string>
-    <string name="txtMorse">Texto a MORSE</string>
+    <string name="btnMorseLandS">Flash+Beep</string>
+    <string name="txtInfo1">Aplicación para enviar mensajes morse\ncon tu teléfono móvil Android.</string>
+    <string name="txtInfo2">Introduce el mensaje y pulsa el botón según como quieras enviarlo.</string>
+    <string name="txtInfo3">Puedes enviar el mensaje usando:</string>
+    <string name="txtInfoFlash">* El flash de la cámara (botón FLASH)</string>
+    <string name="txtInfoBeep">*Un pitido tipo morse (botón BEEP)</string>
+    <string name="txtInfoBoth">*O ambos a la vez (botón FLASH+BEEP)</string>
+    <string name="txtInfoLoop">Si quieres repetir el memsaje en bucle,\nmarca la casilla.\nSi quieres salir del bucle,\npulsa el botón CANCELAR BUCLE que\naparecerá durante el mensaje.</string>
+    <string name="txtMorseHint">Texto a MORSE</string>
     <string name="chkBucle">Repetir en bucle</string>
     <string name="btnCancelar_bucle">Cancelar bucle</string>
     <string name="btnIntro">Morse for Android\n\n\nPush to start</string>
+    <string name="send_message">CLICK TO START</string>
+    <string name="txtSend">Introduce el mensaje a enviar:</string>
+    <string name="txtAppName">MORSE FOR ANDROID</string>
+    <string name="txtInfoDev">Developed by Datecasp</string>
 </resources>

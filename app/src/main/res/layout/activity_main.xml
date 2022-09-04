@@ -1,76 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:padding="10sp">
 
     <TextView
-            android:id="@+id/txtInfo"
+            android:id="@+id/txtAppName"
             android:layout_width="match_parent"
-            android:layout_height="335dp"
-            android:layout_margin="40dp"
-            android:text="@string/txtInfo"
+            android:layout_height="wrap_content"
+            android:text="@string/txtAppName"
+            android:textAlignment="center" android:textSize="24sp" android:layout_marginTop="40dp"
+            android:textStyle="bold"/>
+
+    <TextView
+            android:id="@+id/txtInfo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtInfo1"
+            android:textAlignment="center" android:textSize="18sp" android:layout_marginTop="40dp"/>
+
+    <TextView
+            android:id="@+id/txtInfo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtInfo2"
+            android:textAlignment="center" android:textSize="18sp"/>
+    <TextView
+            android:id="@+id/txtInfo3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtInfo3"
+            android:textAlignment="center" android:textSize="18sp" android:layout_marginTop="15sp"/>
+
+    <TextView
+            android:id="@+id/txtInfoFlash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtInfoFlash"
+            android:textAlignment="center" android:textSize="18sp" android:layout_marginTop="10sp"/>
+
+    <TextView
+            android:id="@+id/txtInfoBeep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtInfoBeep"
             android:textAlignment="center" android:textSize="18sp"/>
 
-
-    <EditText
-        android:id="@+id/txtIntro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:inputType="text"
-        android:hint="@string/txtMorse"
-         />
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnSendLightMsg"
-            android:layout_width="wrap_content"
+    <TextView
+            android:id="@+id/txtInfoBoth"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_gravity="center"
-            android:onClick="btnSendLightMessageClick"
-            android:text="@string/btnMorseL"
-            />
+            android:text="@string/txtInfoBoth"
+            android:textAlignment="center" android:textSize="18sp"/>
 
-        <Button
-                android:id="@+id/btnSendSoundMsg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_gravity="center"
-                android:onClick="btnSendSoundMessageClick"
-                android:text="@string/btnMorseS"
-        />
-
-        <Button
-                android:id="@+id/btnSendLightAndSoundMsg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_gravity="center"
-                android:onClick="btnSendLightandSoundMessageClick"
-                android:text="@string/btnMorseLandS"
-        />
-    </LinearLayout>
-    <CheckBox
-        android:id="@+id/chkLoop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/chkBucle"
-        />
+    <TextView
+            android:id="@+id/txtInfoLoop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtInfoLoop"
+            android:textAlignment="center" android:textSize="18sp" android:layout_marginTop="15sp"/>
 
     <Button
-        android:id="@+id/btnCancelMsg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_gravity="center"
-        android:visibility="invisible"
-        android:onClick="btnCancelClick"
-        android:text="@string/btnCancelar_bucle"
-        />
+            android:id="@+id/btnSendMessage"
+            android:text="@string/send_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btnSendClick" android:layout_marginTop="20sp" android:layout_marginLeft="50sp"
+            android:layout_marginRight="50sp" android:paddingTop="10dp" android:paddingBottom="10dp"/>
+
+    <TextView
+            android:id="@+id/txtInfoDev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtInfoDev"
+            android:textAlignment="center" android:textSize="18sp" android:layout_marginTop="100sp"/>
 
 </LinearLayout>
