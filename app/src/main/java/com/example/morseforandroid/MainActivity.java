@@ -24,11 +24,13 @@ public class MainActivity extends Activity
     private String cameraId;
     private CameraCharacteristics characteristics;
     private EditText et;
-    private AlfabetoMorse.MorseBit[] mensaje = null;
-    private CheckBox chkBucle;
-    private boolean bucle = false;
-    private Button btnCancelarBucle;
+    private AlfabetoMorse.MorseBit[] message = null;
+    private CheckBox chkLoop;
+    private boolean loopFlag = false;
+    private Button btnCancelLoop;
     private boolean light = false, sound = false;
+    //Flag to avoid sending a message while another message is in use
+    private boolean sendingMessage = false;
 
     protected void onCreate(Bundle savedInstance)
     {
@@ -36,54 +38,57 @@ public class MainActivity extends Activity
         setContentView(R.layout.activity_main);
 
         et = findViewById(R.id.txtIntro);
-        chkBucle = findViewById(R.id.chkBucle);
-        btnCancelarBucle = findViewById(R.id.btnCancelar);
+        chkLoop = findViewById(R.id.chkLoop);
+        btnCancelLoop = findViewById(R.id.btnCancelMsg);
     }
 
     /*
         Cancels loop messaging
-        Changes boolean bucle flag and show toast with info
+        Changes boolean loopFlag flag and show toast with info
      */
-    public void btnCancelarClick(View v)
+    public void btnCancelClick(View v)
     {
-        Toast.makeText(MainActivity.this, "Mensaje cancelado", Toast.LENGTH_SHORT).show();
-        bucle = false;
-        btnCancelarBucle.setVisibility(View.INVISIBLE);
+        Toast.makeText(MainActivity.this, "Message canceled", Toast.LENGTH_SHORT).show();
+        loopFlag = false;
+        sendingMessage = false;
+        btnCancelLoop.setVisibility(View.INVISIBLE);
     }
-    public void btnEncenderLClick(View v)
+    public void btnSendLightMessageClick(View v)
     {
         light = true;
         sound = false;
-
-        btnEncenderClick(v);
+        if (!sendingMessage) SendMessage(v);
     }
-    public void btnEncenderSClick(View v)
+    public void btnSendSoundMessageClick(View v)
     {
         light = false;
         sound = true;
-
-        btnEncenderClick(v);
-    }
-    public void btnEncenderLandSClick(View v)
+        if (!sendingMessage) SendMessage(v);
+  }
+    public void btnSendLightandSoundMessageClick(View v)
     {
         light = true;
         sound = true;
-
-        btnEncenderClick(v);
-    }
-    public void btnEncenderClick(View v)
+        if (!sendingMessage) SendMessage(v);
+ }
+    public void SendMessage(View v)
     {
-        //Prueba de reproducción de beep de sistema
-        ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 50);
-        mensaje = AlfabetoMorse.pattern(et.getText().toString());
+        //Beep for sound morse
+        ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 100);
+        //Parse message into Morse alphabet
+        message = AlfabetoMorse.pattern(et.getText().toString());
+        //Get CameraManager for flash use
         manager = (CameraManager) getSystemService(CAMERA_SERVICE);
+        //BG work objects
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
+        //Set flag SendingMessage to true
+        sendingMessage = true;
 
-        if (chkBucle.isChecked())
+        if (chkLoop.isChecked())
         {
-            btnCancelarBucle.setVisibility(View.VISIBLE);
-            bucle = true;
+            btnCancelLoop.setVisibility(View.VISIBLE);
+            loopFlag = true;
         }
 
         /*
@@ -114,14 +119,14 @@ public class MainActivity extends Activity
             public void run()
             {
                 /*
-                    Parsing text to morse simbols and loop if necesary
+                    Parsing text to morse symbols and loop if necessary
 
                     BG work
 
                 */
                 do
                 {
-                    for (AlfabetoMorse.MorseBit bit : mensaje)
+                    for (AlfabetoMorse.MorseBit bit : message)
                     {
                         switch (bit)
                         {
@@ -192,11 +197,11 @@ public class MainActivity extends Activity
                     } catch (Exception ex)
                     {
                     }
-                    if (!bucle)
+                    if (!loopFlag)
                     {
                         break;
                     }
-                } while (bucle);
+                } while (loopFlag);
 
 
                 handler.post(new Runnable()
@@ -205,12 +210,13 @@ public class MainActivity extends Activity
                     public void run()
                     {
                         //UI post when BG work is done
-                        Toast.makeText(MainActivity.this, "Mensaje enviado", Toast.LENGTH_SHORT).show();
-                        bucle = false;
-                        btnCancelarBucle.setVisibility(View.INVISIBLE);
+                        Toast.makeText(MainActivity.this, "Message sent", Toast.LENGTH_SHORT).show();
+                        loopFlag = false;
+                        btnCancelLoop.setVisibility(View.INVISIBLE);
                         //Reset morse type flags
                         light = false;
                         sound = false;
+                        sendingMessage = false;
                     }
                 });
             }
