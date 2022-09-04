@@ -222,6 +222,7 @@ public class MainActivity extends Activity
                         //UI post when BG work is done
                         Toast.makeText(MainActivity.this, "Message sent", Toast.LENGTH_SHORT).show();
                         loopFlag = false;
+                        chkLoop.setChecked(false);
                         btnCancelLoop.setVisibility(View.INVISIBLE);
                         //Reset morse type flags
                         light = false;
