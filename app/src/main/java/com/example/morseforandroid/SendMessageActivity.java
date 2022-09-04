@@ -50,6 +50,7 @@ public class SendMessageActivity extends Activity
     {
         Toast.makeText(SendMessageActivity.this, "Message canceled", Toast.LENGTH_SHORT).show();
         loopFlag = false;
+        chkLoop.setVisibility(View.VISIBLE);
         btnCancelLoop.setVisibility(View.INVISIBLE);
     }
     public void btnSendLightMessageClick(View v)
@@ -97,6 +98,7 @@ public class SendMessageActivity extends Activity
 
         if (chkLoop.isChecked())
         {
+            chkLoop.setVisibility(View.GONE);
             btnCancelLoop.setVisibility(View.VISIBLE);
             loopFlag = true;
         }

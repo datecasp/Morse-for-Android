@@ -18,7 +18,9 @@
             android:layout_margin="8dp"
             android:inputType="text"
             android:hint="@string/txtMorseHint"
-    />
+            android:minHeight="48dp"
+            android:textColorHint="#757575"
+            android:autofillHints=""/>
 
     <Button
             android:id="@+id/btnSendLightMsg"
@@ -60,8 +62,8 @@
 
     <Button
             android:id="@+id/btnCancelMsg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150sp"
+            android:layout_height="75sp"
             android:layout_margin="8dp"
             android:layout_gravity="center"
             android:visibility="invisible"
