@@ -7,4 +7,5 @@
     <string name="txtMorse">Texto a MORSE</string>
     <string name="chkBucle">Repetir en bucle</string>
     <string name="btnCancelar_bucle">Cancelar bucle</string>
+    <string name="btnIntro">Morse for Android\n\n\nPush to start</string>
 </resources>
