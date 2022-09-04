@@ -129,7 +129,7 @@ public class MainActivity extends Activity
                                 try
                                 {
                                     if(light) manager.setTorchMode(cameraId, true);
-                                    if (sound) toneG.startTone(ToneGenerator.TONE_DTMF_0, 250); // 200 is duration in ms
+                                    if (sound) toneG.startTone(ToneGenerator.TONE_DTMF_0, 250); // 250 is duration in ms
                                     Thread.sleep(250);
                                 } catch (Exception ex)
                                 {
@@ -139,7 +139,7 @@ public class MainActivity extends Activity
                                 try
                                 {
                                     if(light) manager.setTorchMode(cameraId, true);
-                                    if (sound) toneG.startTone(ToneGenerator.TONE_DTMF_0, 250); // 200 is duration in ms
+                                    if (sound) toneG.startTone(ToneGenerator.TONE_DTMF_0, 500); // 500 is duration in ms
                                     Thread.sleep(500);
                                 } catch (Exception ex)
                                 {
