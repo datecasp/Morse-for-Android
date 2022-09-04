@@ -28,6 +28,7 @@ public class MainActivity extends Activity
     private CheckBox chkBucle;
     private boolean bucle = false;
     private Button btnCancelarBucle;
+    private boolean light = false, sound = false;
 
     protected void onCreate(Bundle savedInstance)
     {
@@ -49,13 +50,31 @@ public class MainActivity extends Activity
         bucle = false;
         btnCancelarBucle.setVisibility(View.INVISIBLE);
     }
+    public void btnEncenderLClick(View v)
+    {
+        light = true;
+        sound = false;
 
+        btnEncenderClick(v);
+    }
+    public void btnEncenderSClick(View v)
+    {
+        light = false;
+        sound = true;
+
+        btnEncenderClick(v);
+    }
+    public void btnEncenderLandSClick(View v)
+    {
+        light = true;
+        sound = true;
+
+        btnEncenderClick(v);
+    }
     public void btnEncenderClick(View v)
     {
         //Prueba de reproducción de beep de sistema
         ToneGenerator toneG = new ToneGenerator(AudioManager.STREAM_ALARM, 50);
-        toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 200); // 200 is duration in ms
-
         mensaje = AlfabetoMorse.pattern(et.getText().toString());
         manager = (CameraManager) getSystemService(CAMERA_SERVICE);
         ExecutorService executor = Executors.newSingleThreadExecutor();
@@ -109,7 +128,8 @@ public class MainActivity extends Activity
                             case DOT:
                                 try
                                 {
-                                    manager.setTorchMode(cameraId, true);
+                                    if(light) manager.setTorchMode(cameraId, true);
+                                    if (sound) toneG.startTone(ToneGenerator.TONE_DTMF_0, 250); // 200 is duration in ms
                                     Thread.sleep(250);
                                 } catch (Exception ex)
                                 {
@@ -118,7 +138,8 @@ public class MainActivity extends Activity
                             case DASH:
                                 try
                                 {
-                                    manager.setTorchMode(cameraId, true);
+                                    if(light) manager.setTorchMode(cameraId, true);
+                                    if (sound) toneG.startTone(ToneGenerator.TONE_DTMF_0, 250); // 200 is duration in ms
                                     Thread.sleep(500);
                                 } catch (Exception ex)
                                 {
@@ -187,6 +208,9 @@ public class MainActivity extends Activity
                         Toast.makeText(MainActivity.this, "Mensaje enviado", Toast.LENGTH_SHORT).show();
                         bucle = false;
                         btnCancelarBucle.setVisibility(View.INVISIBLE);
+                        //Reset morse type flags
+                        light = false;
+                        sound = false;
                     }
                 });
             }

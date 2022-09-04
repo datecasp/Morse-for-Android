@@ -6,12 +6,12 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txtInfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:text="@string/txtInfo"
-        android:textAlignment="center" />
+            android:id="@+id/txtInfo"
+            android:layout_width="match_parent"
+            android:layout_height="335dp"
+            android:layout_margin="40dp"
+            android:text="@string/txtInfo"
+            android:textAlignment="center" android:textSize="18sp"/>
 
 
     <EditText
@@ -22,17 +22,38 @@
         android:inputType="text"
         android:hint="@string/txtMorse"
          />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnEncender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_gravity="center"
-        android:onClick="btnEncenderClick"
-        android:text="@string/btnMorse"
+        <Button
+            android:id="@+id/btnEncenderL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_gravity="center"
+            android:onClick="btnEncenderLClick"
+            android:text="@string/btnMorseL"
+            />
+
+        <Button
+                android:id="@+id/btnEncenderS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_gravity="center"
+                android:onClick="btnEncenderSClick"
+                android:text="@string/btnMorseS"
         />
 
+        <Button
+                android:id="@+id/btnEncenderLandS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_gravity="center"
+                android:onClick="btnEncenderLandSClick"
+                android:text="@string/btnMorseLandS"
+        />
+    </LinearLayout>
     <CheckBox
         android:id="@+id/chkBucle"
         android:layout_width="wrap_content"
